@@ -1,0 +1,62 @@
+<app-menu></app-menu>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                    class="img-fluid" alt="Phone image">
+            </div>
+
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                <form>
+                    <h1 style="text-align:center;">Inscription</h1><br>
+                    <!-- Nom input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="nom">Nom</label>
+                        <input type="text" name="nom" class="form-control" [(ngModel)]="user.nom" required>
+                        <!-- Afficher un message d'erreur si le champ est vide -->
+                        <div *ngIf="!user.nom && erreur" class="text-danger">Veuillez entrer votre nom</div>
+                    </div>
+                    
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="email">Email address</label>
+                        <input type="email" name="email" class="form-control" [(ngModel)]="user.email" required>
+                        <!-- Afficher un message d'erreur si le champ est vide -->
+                        <div *ngIf="!user.email && erreur" class="text-danger">Veuillez entrer votre adresse email</div>
+                    </div>
+                    
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="adresse">Adresse</label>
+                        <input type="text" name="adresse" class="form-control" [(ngModel)]="user.adresse" required>
+                        <!-- Afficher un message d'erreur si le champ est vide -->
+                        <div *ngIf="!user.adresse && erreur" class="text-danger">Veuillez entrer votre adresse</div>
+                    </div>
+                    
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="motDePasse">Mot de passe</label>
+                        <input type="password" name="motDePasse" class="form-control" [(ngModel)]="user.motDePasse" minlength="6" required>
+                        <!-- Afficher un message d'erreur si le champ est vide -->
+                        <div *ngIf="!user.motDePasse && erreur" class="text-danger">Veuillez entrer votre mot de passe</div>
+                    </div>
+                    
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="confirmationMotDePasse">Confirmer le mot de passe</label>
+                        <input type="password" name="confirmationMotDePasse" class="form-control" [(ngModel)]="confirmationMotDePasse" minlength="6" required>
+                        <!-- Afficher un message d'erreur si le champ est vide -->
+                        <div *ngIf="!confirmationMotDePasse && erreur" class="text-danger">Veuillez confirmer votre mot de passe</div>
+                        <!-- Afficher un message d'erreur si les mots de passe ne correspondent pas -->
+                        <div *ngIf="confirmationMotDePasse !== user.motDePasse && erreur" class="text-danger">Les mots de passe ne correspondent pas</div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="register()">Inscription</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

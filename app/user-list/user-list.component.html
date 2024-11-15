@@ -1,0 +1,38 @@
+
+<div class="container" class="background" style="background-image: url('../../assets/images/bg1.png');">
+    <div class="card shadow mb-10">
+        <div class="card-body">
+            <h1>Liste des Utilisateurs </h1>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>id</th>
+                            <th>Nom</th>
+                            <th>Adresse</th>
+                            <th>Email</th>
+                            <th>Mot De Passe</th>
+                            
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let p of user">
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.nom}}</td>
+                            <td>{{p.adresse}}</td>
+                            <td>{{p.email}}</td>
+                            <td>{{p.motDePasse}}</td>
+                            
+                            <td>
+                                <a class="btn btn-danger" (click)="deleteUsers(p.id)"><img src="../assets/images/delete.png" height="32" width="32"></a>      
+                               <a class="btn btn-warning" [routerLink]="['/UpdateUser',p.id]"> 
+                                <img src="../assets/images/edit.png" height="32" width="32"></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

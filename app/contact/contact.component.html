@@ -1,0 +1,26 @@
+<div><br></div><div><br></div>
+<body class="background">
+
+  <app-menu></app-menu>
+<!-- Contenu de la page -->
+<div class="container mt-5">
+    <div class="contact-form contact-form-green">
+        <h2 class="mb-4">Contactez-nous</h2>
+        <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="nom " name="nom" [(ngModel)]="newReclam.nom" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Adresse e-mail</label>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="newReclam.email" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message de Réclamation</label>
+              <textarea class="form-control" id="message" name="message" rows="5" [(ngModel)]="newReclam.message" required></textarea>
+            </div>
+            <button type="submit" (click)="createReclam()" class="btn btn-primary">Envoyer</button>
+          </form>
+    </div>
+</div>
+</body>

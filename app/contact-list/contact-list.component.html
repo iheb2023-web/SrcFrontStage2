@@ -1,0 +1,34 @@
+
+<div class="container" class="background" style="background-image: url('../../assets/images/bg1.png');">
+    <div class="card shadow mb-10">
+        <div class="card-body">
+            <h1>Liste des Reclamations </h1>
+            <div class="table-responsive">
+                <table class="table table-bordered container">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>id</th>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Action</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let p of tabReclam">
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.nom}}</td>
+                            <td>{{p.email}}</td>
+                            <td>{{p.message}}</td>
+                            <td class="row">
+                                <a class="btn btn-danger" (click)="deleteReclam(p.id)"><img src="../assets/images/delete.png" height="32" width="32" class="col-md-3 mx-auto"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

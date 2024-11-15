@@ -1,0 +1,42 @@
+<body class="d-flex" id="wrapper">
+    <!-- Le conteneur global avec le fond linéaire -->
+    <div class="container-fluid" style="background: linear-gradient(to right, #a8ff78, #78ffd6); height: 100vh; display: flex; justify-content: center; align-items: center">
+        <!-- Conteneur avec fond personnalisé -->
+        <div class="card shadow" style="width: 1000px; height: 450px; ">
+            <div class="card-body">
+                <h2>Modifier un Utilisateur</h2>
+                <form (ngSubmit)="updateProduct()">
+                    <!-- Champ Nom -->
+                    <div class="form-group">
+                        <label pour="nom">Nom</label>
+                        <input type="text" name="nom" [(ngModel)]="newUser.nom" class="form-control" />
+                    </div>
+
+                    <!-- Champ Email -->
+                    <div class="form-group">
+                        <label pour="email">Email</label>
+                        <input type="email" name="email" [(ngModel)]="newUser.email" class="form-control" />
+                    </div>
+
+                    <!-- Champ Adresse -->
+                    <div class="form-group">
+                        <label pour="adresse">Adresse</label>
+                        <input type="text" name="adresse" [(ngModel)]="newUser.adresse" class="form-control" />
+                    </div>
+
+                    <!-- Champ Mot de Passe -->
+                    <div class="form-group">
+                        <label pour="motDePasse">Mot de Passe</label>
+                        <input type="password" name="motDePasse" [(ngModel)]="newUser.motDePasse" class="form-control" />
+                    </div>
+
+                    <!-- Boutons de soumission et de réinitialisation -->
+                    <div class="card-footer" style="position: absolute; bottom: 0; left: 0; width: 100%;">
+                        <button type="submit" class="btn btn-success">Modifier</button>
+                        <button type="reset" class="btn btn-secondary ml-2">Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+<br>
+<br>
+<br>
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                    class="img-fluid" alt="Phone image">
+                    
+            </div>
+            
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                <form (ngSubmit)="onFormSubmit()">
+                    <h1 style="text-align:center;">Connexion</h1><br>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form1Example13">Adresse Email</label>
+                        <input type="text" name="login" class="form-control" [(ngModel)]="cl.email" minlength="5" required (change)="reset()">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form1Example23">Mot de passe</label>
+                        <input type="password" name="password" [(ngModel)]="cl.motDePasse" class="form-control" minlength="6" required (change)="reset()">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Connexion</button>
+                    <div class="text-err" *ngIf="erreur">
+                        <p style="color: red;">Login et/ou mot de passe incorrect</p>
+                    </div>
+                    <div class="mt-4">
+                        <p>Vous n'avez pas de compte? <a href="/inscription">Inscrivez-vous ici</a>.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,38 @@
+
+
+<body class="d-flex" id="wrapper">
+    <div class="container-fluid" style="height: 70vh; display: flex; justify-content: center; align-items: center; padding: 0;">
+        <div class="card shadow" style="width: 1000px; height: 450px;">
+        <div class="card-body">
+            <h2>Ajouter un Utilisateur</h2> 
+            <form (ngSubmit)="createUsers()" #userForm="ngForm">
+                <div class="form-group">
+                    <label for="nom">Nom *</label>
+                    <input type="text" [(ngModel)]="newUser.nom" name="nom" class="form-control" required #nom="ngModel">
+                    <div *ngIf="userForm.controls['nom'].invalid && (userForm.controls['nom'].touched || nom.value === '')" class="text-danger">Veuillez entrer un nom valide.</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" [(ngModel)]="newUser.email" name="email" class="form-control" required>
+                    <div *ngIf="userForm.controls['email'].invalid && userForm.controls['email'].touched" class="text-danger">Veuillez entrer une adresse email valide.</div>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse *</label>
+                    <input type="text" [(ngModel)]="newUser.adresse" name="adresse" class="form-control" required>
+                    <div *ngIf="userForm.controls['adresse'].invalid && userForm.controls['adresse'].touched" class="text-danger">Veuillez entrer une adresse valide.</div>
+                </div>
+                <div class="form-group">
+                    <label for="motDePasse">Mot de Passe *</label>
+                    <input type="password" [(ngModel)]="newUser.motDePasse" name="motDePasse" class="form-control" required>
+                    <div *ngIf="userForm.controls['motDePasse'].invalid && userForm.controls['motDePasse'].touched" class="text-danger">Veuillez entrer un mot de passe.</div>
+                </div>
+
+                <div class="card-footer" style="position: absolute; bottom: 0; left: 0; width: 100%;">
+                    <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">Ajouter</button>
+                    <button type="reset" class="btn btn-secondary ml-2">Annuler</button></div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>

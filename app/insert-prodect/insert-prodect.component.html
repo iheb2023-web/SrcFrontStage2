@@ -1,0 +1,41 @@
+<body class="d-flex" id="wrapper">
+    <div class="container-fluid" style="height: 70vh; display: flex; justify-content: center; align-items: center; padding: 0;">
+        <div class="card shadow" style="width: 1000px; height: 470px;">
+            <div class="card-body">
+                <h2>Ajouter un produit</h2>
+                <form (ngSubmit)="createProdect()" #productForm="ngForm">
+                    <div class="form-group">
+                        <label for="libelle">Libellé *</label>
+                        <input type="text" [(ngModel)]="newproduit.libelle" name="libelle" class="form-control" required #libelle="ngModel">
+                        <div *ngIf="productForm.controls['libelle'].invalid && (productForm.controls['libelle'].touched || libelle.value === '')" class="text-danger">Veuillez entrer un libellé valide.</div>
+                    </div>
+                    <div class="form-group">
+                        <label pour="description">Description *</label>
+                        <input type="text" [(ngModel)]="newproduit.description" name="description" class="form-control" required #description="ngModel">
+                        <div *ngIf="productForm.controls['description'].invalid && productForm.controls['description'].touched" class="text-danger">Veuillez entrer une description valide.</div>
+                    </div>
+                    <div class="form-group">
+                        <label pour="prix">Prix *</label>
+                        <input type="number" [(ngModel)]="newproduit.prix" name="prix" class="form-control" required #prix="ngModel">
+                        <div *ngIf="productForm.controls['prix'].invalid && (prix.touched || productForm.submitted)" class="text-danger">Veuillez entrer un prix valide.</div>
+                    </div>
+                    <div class="form-group">
+                        <label pour="image">Image *</label>
+                        <input type="file" (change)="onImageSelected($event)" class="form-control" required >
+                    </div>
+                    <div class="form-group">
+                        <label pour="categorie">Catégorie de produit *</label>
+                        <select class="form-control" name="categorie" [(ngModel)]="newproduit.categorie" required #categorie="ngModel">
+                            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                        </select>
+                        <div *ngIf="productForm.controls['categorie'].invalid et (productForm.controls['categorie'].touched)" class="text-danger">Veuillez choisir une catégorie.</div>
+                    </div>
+                    <div class="card-footer" style="position: absolute; bottom: 0; left: 0; width: 100%;">
+                        <button type="submit" class="btn btn-success" [disabled]="productForm.invalid">Ajouter</button>
+                        <button type="reset" class="btn btn-secondary ml-2">Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

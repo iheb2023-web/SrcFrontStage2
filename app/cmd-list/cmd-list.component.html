@@ -1,0 +1,38 @@
+<div class="container background" style="background-image: url('../../assets/images/bg1.png');">
+    <div class="card shadow mb-10">
+        <div class="card-body">
+            <h1>Liste des Commandes</h1>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Date de Commande</th>
+                            <th>Statut</th>
+                            <th>User ID</th>
+                            <th>Action</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let cmd of commandes">
+                        <tr>
+                            <td>{{cmd.id}}</td>
+                            <td>{{cmd.date_commande | date:'short'}}</td>
+                            <td>{{cmd.statut}}</td>
+                            <td>{{cmd.client.id}}</td> 
+
+                            <td>
+                                <a class="btn btn-danger" (click)="deleteCommande(cmd.id)">
+                                    <img src="../assets/images/delete.png" height="32" width="32">
+                                </a>      
+                                <a class="btn btn-warning" [routerLink]="['/UpdateCommande', cmd.id]"> 
+                                    <img src="../assets/images/edit.png" height="32" width="32">
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

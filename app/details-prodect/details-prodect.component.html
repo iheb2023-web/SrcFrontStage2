@@ -1,0 +1,33 @@
+
+<app-menu></app-menu>
+<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>
+
+<div class="card-container mt-5 mb-5">
+  <div class="row no-gutters">
+      <div class="col-md-4">
+          <img src="assets/images/{{ newProd.image }}.jpg" class="card-img" alt="Product Image">
+      </div>
+      <div class="col-md-8">
+        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{ newProd.categorie }}</div>
+        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+            <h4>{{ newProd.libelle }}</h4>
+            <p>{{ newProd.description }}</p>
+            <div class="d-flex justify-content-between flex-lg-wrap">
+                <p class="text-dark fs-5 fw-bold mb-0">DT{{ newProd.prix }} / kg</p>
+            </div>
+            <div>
+              <p>Un choix frais et sain pour une alimentation équilibrée. Nos fruits et légumes sont soigneusement sélectionnés pour vous offrir des produits de qualité et riches en nutriments essentiels. Profitez de la fraîcheur et de la saveur naturelle de ces produits pour accompagner votre quotidien.
+              </p>
+            </div>
+            <div *ngIf="authse.isConnected$ | async">
+              <a class="btn border border-secondary rounded-pill px-3 text-primary" (click)="ajouterAuPanier()"><i class="fa fa-shopping-bag me-2 text-primary"></i>ACHETER</a>
+            </div>
+            <div *ngIf="!(authse.isConnected$ | async)">
+              <a class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i>ACHETER</a>
+              <p style="font-weight: bold;color: black;">Pour acheter, il faut se connecter.</p>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+<app-footer></app-footer>
